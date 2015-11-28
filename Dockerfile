@@ -1,6 +1,12 @@
 FROM java:8-jdk
 
-RUN apt-get update && apt-get install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update
+RUN apt-get install -y wget git curl zip
+
+# My CHANGES
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
+RUN rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
@@ -30,11 +36,7 @@ COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groov
 ENV JENKINS_VERSION 1.625.2
 ENV JENKINS_SHA 395fe6975cf75d93d9fafdafe96d9aab1996233b
 
-# My CHANGES
-RUN apt-get update
-RUN apt-get install -y lxc
-RUN apt-get install -y nodejs
-RUN apt-get install -y npm
+
 
 # could use ADD but this one does not check Last-Modified header 
 # see https://github.com/docker/docker/issues/8331
