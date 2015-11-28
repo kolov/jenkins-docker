@@ -33,6 +33,8 @@ ENV JENKINS_SHA 395fe6975cf75d93d9fafdafe96d9aab1996233b
 # My CHANGES
 RUN apt-get update
 RUN apt-get install -y lxc
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
 
 # could use ADD but this one does not check Last-Modified header 
 # see https://github.com/docker/docker/issues/8331
