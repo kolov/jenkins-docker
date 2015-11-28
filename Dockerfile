@@ -6,6 +6,7 @@ RUN apt-get install -y wget git curl zip
 # My CHANGES
 RUN apt-get install -y nodejs
 RUN apt-get install -y npm
+RUN apt-get install -y lxc
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
